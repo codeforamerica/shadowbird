@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shadow Bird</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <link href="css/style.css" rel="stylesheet" />
+
+  <script type="text/javascript" src="lib/jquery-2.1.0.js"></script>
+  <script type="text/javascript" src="lib/oauth.js"></script>
+
+  <script type="text/javascript" src="js/app.js"></script>
+</head>
+<body>
+  <div class="content">
+    <h1><span class="light">Shadow</span> Bird</h1>
+
+    <p>See Twitter from another person's perspective.<p>
+    <p class="details">Copies their "following" list into a private list in your account, so you can see the same Timeline they see.</p>
+    
+    <button class="signin button-twitter">Sign in with Twitter</button>
+    
+    <div class="afterSignin" style="display:none">
+      <input class="username" type="text" name="username" placeholder="@username">
+      <button class="createShadow button-twitter">Create Shadow</button>
+      <div class="progress showIndicator" style="display:none">Creating shadow. This might take a few minutes...</div>
+    </div>
+  </div>
+</body>
