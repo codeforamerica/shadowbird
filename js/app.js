@@ -24,18 +24,24 @@ $(document).ready(function(){
 
         // Twitter API urls
         var friendsURL = 'https://api.twitter.com/1.1/friends/ids.json?screen_name=' + user;
-        var createListURL = 'https://api.twitter.com/1.1/lists/create.json?name=' + user + '&mode=private';
+        var createListURL = 'https://api.twitter.com/1.1/lists/create.json';
         var addToListURL = 'https://api.twitter.com/1.1/lists/members/create_all.json';
 
         // Get a list of the user's friends
         api.get(friendsURL).done(function(data) {
           var friendIds = data.ids;
 
+          var postData = {
+            name: 'Shadow: ' + user,
+            mode: 'private',
+          };
+
           // Create a list with that user's name
-          api.post(createListURL).done(function(data) {
+          api.post(createListURL, {data: postData}).done(function(data) {
+            console.log(data);
             var listId = data.id;
             var listURI = data.uri;
-            console.log(data);
+
             var requestCount = 0;
 
             // Post users to the list, in increments of 20
