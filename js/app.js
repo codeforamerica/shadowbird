@@ -60,7 +60,7 @@ $(document).ready(function(){
 
                   // Restore the UI to it's original state
                   inProgress = false;
-                  $('.progress').removeClass('showIndicator').html('@' + user + ' shadowed. View their timeline <a href="https://twitter.com/' + listURI + '">here</a>.');
+                  $('.progress').removeClass('showIndicator').html('@' + user + ' shadowed. View their timeline <a href="https://twitter.com/' + listURI + '" target="_blank">here</a>.');
                   $('.username').removeAttr('disabled').val('');
                   $('.createShadow').removeClass('disabled');
                 }
