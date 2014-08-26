@@ -53,7 +53,8 @@ $(document).ready(function(){
               };
 
               requestCount++;
-              api.post(addToListURL, {data: data}).done(function(data) {
+              api.post(addToListURL, {data: data})
+              .done(function(data) {
                 requestCount--;
                 if (requestCount === 0) {
                   console.log('finished');
@@ -64,6 +65,9 @@ $(document).ready(function(){
                   $('.username').removeAttr('disabled').val('');
                   $('.createShadow').removeClass('disabled');
                 }
+              })
+              .fail(function(err) {
+                alert("The twitter API is temporarily overloaded; Please try again later.")
               });
             }
           });
