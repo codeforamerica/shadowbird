@@ -53,7 +53,8 @@ $(document).ready(function(){
               };
 
               requestCount++;
-              api.post(addToListURL, {data: data}).done(function(data) {
+              api.post(addToListURL, {data: data})
+              .done(function(data) {
                 requestCount--;
                 if (requestCount === 0) {
                   console.log('finished');
@@ -64,6 +65,11 @@ $(document).ready(function(){
                   $('.username').removeAttr('disabled').val('');
                   $('.createShadow').removeClass('disabled');
                 }
+              })
+              .fail(function(err) {
+                  $('.progress').removeClass('showIndicator').html('The Twitter API is temporarily overloaded. This often happens when the Shadowed user follows a lot of people. View an incomplete shadow list for ' + '@' + user + ' : <a href="https://twitter.com/' + listURI + '" target="_blank">here</a>.');
+                  $('.username').removeAttr('disabled').val('');
+                  $('.createShadow').removeClass('disabled');
               });
             }
           });
